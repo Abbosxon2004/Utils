@@ -1,9 +1,18 @@
 plugins {
     id 'java'
 }
+// java-library plugin is used to use project as api in other project
+//The Java plugin adds Java compilation along with testing and bundling
+// capabilities to a project. It serves as the basis for many of the other JVM language Gradle plugins1.
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -23,13 +32,6 @@ jar {
     }
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-    }
-}
 
 test {
     useJUnitPlatform()
