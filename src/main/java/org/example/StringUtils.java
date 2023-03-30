@@ -2,6 +2,10 @@ package org.example;
 
 public class StringUtils {
     public static boolean isPositiveNumber(String str) {
-        return org.apache.commons.lang3.StringUtils.isNumeric(str) && Integer.parseInt(str) > 0;
+        try {
+            return Double.valueOf(str)>0;
+        }catch (Exception e){
+            return false;
+        }
     }
 }
